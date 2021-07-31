@@ -76,7 +76,6 @@ Cstr(Fields!EndingDate.Value) + Chr(177) + Cstr(Fields!Today_Date.Value), 1)</Hi
                           </Style>
                         </Textbox>
                         <ColSpan>4</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -121,7 +120,6 @@ Cstr(Fields!EndingDate.Value) + Chr(177) + Cstr(Fields!Today_Date.Value), 1)</Hi
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -265,7 +263,6 @@ Cstr(Fields!EndingDate.Value) + Chr(177) + Cstr(Fields!Today_Date.Value), 1)</Hi
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -411,7 +408,6 @@ Cstr(Fields!EndingDate.Value) + Chr(177) + Cstr(Fields!Today_Date.Value), 1)</Hi
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -701,7 +697,7 @@ Cstr(Fields!EndingDate.Value) + Chr(177) + Cstr(Fields!Today_Date.Value), 1)</Hi
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>From </Value>
+                      <Value>=Parameters!FromLbl.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -777,7 +773,7 @@ Cstr(Fields!EndingDate.Value) + Chr(177) + Cstr(Fields!Today_Date.Value), 1)</Hi
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>To</Value>
+                      <Value>=Parameters!ToLbl.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -854,7 +850,7 @@ Cstr(Fields!EndingDate.Value) + Chr(177) + Cstr(Fields!Today_Date.Value), 1)</Hi
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Date filter:</Value>
+                      <Value>=Parameters!DateFilterLbl.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1073,6 +1069,58 @@ Cstr(Fields!EndingDate.Value) + Chr(177) + Cstr(Fields!Today_Date.Value), 1)</Hi
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="DateFilterLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DateFilterLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DateFilterLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FromLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FromLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FromLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ToLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ToLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ToLbl</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>1</NumberOfColumns>
+      <NumberOfRows>3</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>DateFilterLbl</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>FromLbl</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>ToLbl</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""

@@ -92,6 +92,12 @@ report 50101 "Auto Rent History"
             }
         }
     }
+    labels
+    {
+        DateFilterLbl = 'Date Filter:';
+        FromLbl = 'From';
+        ToLbl = 'To';
+    }
 
 
     var
